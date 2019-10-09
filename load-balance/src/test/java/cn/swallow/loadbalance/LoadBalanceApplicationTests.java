@@ -1,4 +1,4 @@
-package cn.swallow.servicehi;
+package cn.swallow.loadbalance;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ServiceHiApplicationTests {
+public class LoadBalanceApplicationTests {
 
     @Test
     public void contextLoads() {

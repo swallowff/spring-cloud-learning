@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>cn.swallow</groupId>
-    <artifactId>service-one</artifactId>
+    <artifactId>load-balance</artifactId>
     <version>1.0.0</version>
-    <name>service-one</name>
-    <description>service-one</description>
+    <name>load-balance</name>
+    <description>load-balance</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,12 +29,13 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
+        <!--spring-web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- spring boot doTest-->
+        <!-- spring boot test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

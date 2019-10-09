@@ -3,7 +3,9 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/load-balance" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-hi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-two" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
