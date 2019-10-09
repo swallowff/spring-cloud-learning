@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
         <module name="load-balance" />
-        <module name="my_work_space" />
         <module name="service-one" />
         <module name="service-two" />
         <module name="spring-cloud-learn" />
