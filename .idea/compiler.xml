@@ -6,19 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
         <module name="eureka-server" />
         <module name="load-balance" />
-        <module name="service-one" />
-        <module name="service-two" />
+        <module name="service-goods" />
+        <module name="service-order" />
         <module name="spring-cloud-learn" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="load-balance" target="1.8" />
       <module name="my_work_space" target="1.8" />
-      <module name="service-one" target="1.8" />
-      <module name="service-two" target="1.8" />
+      <module name="service-goods" target="1.8" />
+      <module name="service-order" target="1.8" />
       <module name="spring-cloud-learn" target="1.5" />
     </bytecodeTargetLevel>
   </component>
