@@ -17,9 +17,9 @@ public class FeignCtrl {
     @Autowired
     private IFeignService feignService;
 
-    @RequestMapping(value = "testFeign")
-    public String testFeign(@RequestParam String name){
-        return feignService.doTest(name);
+    @RequestMapping(value = "goodsList")
+    public String goodsList(){
+        return feignService.goodsList();
     }
 
 }

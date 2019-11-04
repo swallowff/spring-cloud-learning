@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "service-one",fallback = FeignFallbackService.class)
+@FeignClient(value = "service-goods",fallback = FeignFallbackService.class)
 @Service
 public interface IFeignService {
 
-    @RequestMapping(value = "/api/doTest",method = RequestMethod.GET)
-    String doTest(@RequestParam(value = "name") String name);
+    @RequestMapping(value = "/api/goodsList",method = RequestMethod.GET)
+    String goodsList();
 
 
 }

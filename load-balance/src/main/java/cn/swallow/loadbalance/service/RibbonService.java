@@ -15,12 +15,12 @@ public class RibbonService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "doTestError")
-    public String doTest(String name) {
-        return restTemplate.getForObject("http://service-one/api/doTest?name="+name,String.class);
+    @HystrixCommand(fallbackMethod = "goodsListError")
+    public String goodsList() {
+        return restTemplate.getForObject("http://service-goods/api/goodsList",String.class);
     }
 
-    public String doTestError(String name) {
-        return "hi,"+name+",sorry,error! execute ribbon hystrix";
+    public String goodsListError() {
+        return "Ribbon hystrix error ! Service-goods is um-useful now ! Please try again later";
     }
 }

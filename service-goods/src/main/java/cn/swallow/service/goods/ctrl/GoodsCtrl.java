@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/api")
-public class InfactBusinessCtrl {
+public class GoodsCtrl {
 
     @Value("${server.port}")
     String port;
 
-    @RequestMapping(value = "/doTest",method = RequestMethod.GET)
-    public String doTest(@RequestParam String name){
-        return "hi "+name+",i am from port:" +port;
+    @RequestMapping(value = "/goodsList",method = RequestMethod.GET)
+    public String goodsList(){
+        return "goodsList service from port:" +port;
     }
 
 }

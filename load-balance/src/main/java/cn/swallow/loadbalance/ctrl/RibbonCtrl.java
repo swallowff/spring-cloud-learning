@@ -18,13 +18,13 @@ public class RibbonCtrl {
     private RibbonService ribbonService;
 
     /**
-     * ribbon负载均衡,将请求转发至注册的 /api/doTest 服务
-     * @param name
+     * ribbon负载均衡,将请求转发至注册的 /api/goodsList 服务
+     * @param
      * @return
      */
-    @RequestMapping("/testRibbon")
-    public String testRibbon(@RequestParam String name){
-        return ribbonService.doTest(name);
+    @RequestMapping("/goodsList")
+    public String goodsList(){
+        return ribbonService.goodsList();
     }
 
 }

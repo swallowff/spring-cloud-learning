@@ -9,6 +9,7 @@
         <module>load-balance</module>
         <module>service-goods</module>
         <module>service-order</module>
+        <module>gateway</module>
     </modules>
 
     <groupId>cn.swallow</groupId>

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class FeignFallbackService implements IFeignService {
 
     @Override
-    public String doTest(String name) {
-        return "hi,"+name+",sorry,error! execute feign hystrix";
+    public String goodsList() {
+        return "Feign hystrix error ! Service-goods is um-useful now ! Please try again later";
     }
 }
