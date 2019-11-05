@@ -4,23 +4,31 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.2.107:8848
-      config:
-        server-addr: 192.168.2.107:8848
-        file-extension: yml
+        server-addr: http://localhost:8761/eureka/
+#      config:
+#        server-addr: 192.168.2.107:8848
+#        file-extension: yml
     gateway:
       routes:
-        - id: business-account
+        - id: service_goods
           uri: lb://service-goods #lb://服务名
           #        uri: http://localhost:8081/business-account
           predicates:
-            - Path=/goods
-#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
-        - id: business-account
-          uri: lb://service-goods
+            - Path=/goods/**
+          filters:
+            - StripPrefix=1
+        - id: service_order
+          uri: lb://order
           #        uri: http://localhost:8082/business-account/
           predicates:
-            - Path=/goods
+            - Path=/order/**
 #            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            - StripPrefix=1
+service-goods:
+  ribbon:
+    listOfServers: localhost:8764,localhost:8765
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
 server:
   port: 8080
