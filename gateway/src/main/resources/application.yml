@@ -2,33 +2,46 @@ spring:
   application:
     name: gateway
   cloud:
-    nacos:
+    gateway:
       discovery:
-        server-addr: http://localhost:8761/eureka/
+        locator:
+          enabled: true   # 配置此项可通过http://localhost:8080/{大写服务名}/url 进行负载均衡调用
+          lower-case-service-id: true # 配置此项可使用小写服务名路由
+# 使用手动配置服务的方式负载均衡
+#    nacos:
+#      discovery:
+#        server-addr: http://localhost:8761/eureka/
 #      config:
 #        server-addr: 192.168.2.107:8848
 #        file-extension: yml
-    gateway:
-      routes:
-        - id: service_goods
-          uri: lb://service-goods #lb://服务名
-          #        uri: http://localhost:8081/business-account
-          predicates:
-            - Path=/goods/**
-          filters:
-            - StripPrefix=1
-        - id: service_order
-          uri: lb://order
-          #        uri: http://localhost:8082/business-account/
-          predicates:
-            - Path=/order/**
-#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
-          filters:
-            - StripPrefix=1
-service-goods:
-  ribbon:
-    listOfServers: localhost:8764,localhost:8765
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+#      routes:
+#        - id: service_goods
+#          uri: lb://service-goods #lb://服务名
+#          predicates:
+#            - Path=/goods/**
+#          filters:
+#            - StripPrefix=1
+#        - id: service_order
+#          uri: lb://service-order
+#          predicates:
+#            - Path=/order/**
+#          filters:
+#            - StripPrefix=1
+
+#service-goods:
+#  ribbon:
+#    listOfServers: localhost:8764,localhost:8765
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
