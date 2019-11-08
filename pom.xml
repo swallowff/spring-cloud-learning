@@ -10,6 +10,7 @@
         <module>service-goods</module>
         <module>service-order</module>
         <module>gateway</module>
+        <module>oauth</module>
     </modules>
 
     <groupId>cn.swallow</groupId>

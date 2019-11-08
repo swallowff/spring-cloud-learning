@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>cn.swallow</groupId>
+    <groupId>cn.swallow.cloudlearn</groupId>
     <artifactId>eureka-server</artifactId>
     <version>1.0.0</version>
     <name>eureka-server</name>
