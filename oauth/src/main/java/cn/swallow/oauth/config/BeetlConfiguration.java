@@ -1,6 +1,5 @@
 package cn.swallow.oauth.config;
 
-import com.google.common.collect.Maps;
 import org.beetl.core.Context;
 import org.beetl.core.Function;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
@@ -9,6 +8,7 @@ import org.springframework.core.env.Environment;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,7 +26,7 @@ public class BeetlConfiguration extends BeetlGroupUtilConfiguration {
     public void initOther() {
         Map<String, Object> sharedVars = this.groupTemplate.getSharedVars();
         if (sharedVars == null) {
-            sharedVars = Maps.newHashMap();
+            sharedVars = new HashMap<>();
         }
         //最终路径
 //        sharedVars.put("admin", ctx + admin);

@@ -10,14 +10,22 @@ spring:
       suffix: .html
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/swear_cloud?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
-    username: shenyu
+#    url: jdbc:mysql://localhost:3306/swear_cloud?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
+#    username: shenyu
+#    password: yanni623..
+    url: jdbc:mysql://120.79.225.48:3306/cloud_learn?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
+    username: root
     password: yanni623..
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    timeout: 20000
 
 eureka:
   client:
