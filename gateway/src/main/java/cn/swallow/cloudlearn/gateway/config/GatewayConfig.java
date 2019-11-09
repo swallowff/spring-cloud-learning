@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @create 2019/11/6
  */
 @Configuration
+@Deprecated
 public class GatewayConfig {
 
 //    @Bean

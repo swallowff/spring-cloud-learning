@@ -68,25 +68,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
 //        web.ignoring()
-//                .antMatchers("/user/**");
+//                .antMatchers("/users/**");
     }
 
 
     // 配置拦截规则
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/auth/**").permitAll()
-                .antMatchers("/user/**").hasRole("admin")//表示/user资源需要有ADMIN这个角色才能访问
+//        http.authorizeRequests()
 //                .antMatchers("/oauth/**").permitAll()
-                .anyRequest().authenticated()
-                .anyRequest().access("@rbacService.hasPermission(request,authentication)")
-//                .and().formLogin().loginPage("/auth/login.html").loginProcessingUrl("/auth/login")  //loginProcessingUrl为提交登录的接口
-                .and().formLogin()
-                .successHandler(myAuthenticationSuccessHandler)
-                .failureHandler(myAuthenticationFailHander)
-                .and().csrf().disable()
-                .httpBasic();
+////                .antMatchers("/user/**").hasRole("admin")//表示/user资源需要有ADMIN这个角色才能访问
+//                .antMatchers("/user/**").permitAll()
+//                .anyRequest().authenticated()
+//                .anyRequest().access("@rbacService.hasPermission(request,authentication)")
+////                .and().formLogin().loginPage("/auth/login.html").loginProcessingUrl("/auth/login")  //loginProcessingUrl为提交登录的接口
+//                .and().formLogin()
+//                .successHandler(myAuthenticationSuccessHandler)
+//                .failureHandler(myAuthenticationFailHander)
+//                .and().csrf().disable()
+//                .httpBasic();
+
+        http.requestMatchers().anyRequest()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/oauth/**").permitAll();
     }
 
 

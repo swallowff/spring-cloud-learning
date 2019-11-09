@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 /**
  * @author shenyu
- * @Description TODO
+ * @Description
  * @create 2019-11-9
  */
 @Configuration

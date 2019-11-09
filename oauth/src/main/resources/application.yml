@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
@@ -10,18 +10,18 @@ spring:
       suffix: .html
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/swear_cloud?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
-#    username: shenyu
-#    password: yanni623..
-    url: jdbc:mysql://120.79.225.48:3306/cloud_learn?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
-    username: root
+    url: jdbc:mysql://localhost:3306/swear_cloud?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
+    username: shenyu
     password: yanni623..
+#    url: jdbc:mysql://120.79.225.48:3306/cloud_learn?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=CTT
+#    username: root
+#    password: yanni623..
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
   redis:
-    host: localhost
+    host: 127.0.0.1
     port: 6379
     password:
     database: 0
@@ -32,3 +32,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+logging:
+  level:
+    root: info
