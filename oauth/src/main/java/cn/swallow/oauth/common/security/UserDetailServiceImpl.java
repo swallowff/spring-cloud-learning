@@ -20,7 +20,7 @@ import java.util.List;
  * @author shenyu
  * @create 2019/11/7
  */
-@Service("userDetailServiceImpl")
+//@Service("userDetailServiceImpl")
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private SysUserService userInfoService;

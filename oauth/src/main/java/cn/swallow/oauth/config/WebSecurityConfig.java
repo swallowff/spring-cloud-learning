@@ -14,6 +14,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -35,23 +37,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthenticationFailureHandler myAuthenticationFailHander;
 
-    // 用户验证服务
     @Autowired
-    @Qualifier("userDetailServiceImpl")
+    private PasswordEncoder passwordEncoder;
+    @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private ClientDetailsService clientDetailsService;
 
-    // 用户信息保存在内存中(测试用)
-//    @Bean
-//    @Override
-//    protected UserDetailsService userDetailsService() {
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//        String finalPassword = "{bcrypt}"+bCryptPasswordEncoder.encode("123456");
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//        manager.createUser(User.withUsername("user_1").password(finalPassword).authorities("USER").build());
-//        manager.createUser(User.withUsername("user_2").password(finalPassword).authorities("USER").build());
-//        return manager;
-//    }
-
+    @Override
+    public UserDetailsService userDetailsService() {
+        return userDetailsService;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -92,6 +88,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/oauth/**").permitAll();
+
     }
 
 

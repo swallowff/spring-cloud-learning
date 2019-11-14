@@ -1,4 +1,4 @@
-package cn.swallow.oauth.config;
+package cn.swallow.oauth.config.beetl;
 
 import cn.swallow.oauth.config.properties.BeetlProperties;
 import org.beetl.core.resource.ClasspathResourceLoader;

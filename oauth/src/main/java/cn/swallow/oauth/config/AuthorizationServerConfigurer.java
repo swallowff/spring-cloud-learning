@@ -30,7 +30,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfigurer extends AuthorizationServerConfigurerAdapter {
-    private static final String DEMO_RESOURCE_ID = "goods";
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -40,27 +39,25 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
     DataSource dataSource;
     @Autowired
     PasswordEncoder passwordEncoder;
-    @Autowired
-    ClientDetailsService clientDetailsService;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-//        String finalSecret = new BCryptPasswordEncoder().encode("123456");
-//
-//        // 配置两个客户端，一个用于password认证一个用于client认证
-//        clients.inMemory().withClient("client_1")
-//                .resourceIds(DEMO_RESOURCE_ID)
-//                .authorizedGrantTypes("client_credentials", "refresh_token")
-//                .scopes("select")
-//                .authorities("oauth2")
-//                .secret(finalSecret)
-//                .and().withClient("client_2")
-//                .resourceIds(DEMO_RESOURCE_ID)
-//                .authorizedGrantTypes("password", "refresh_token")
-//                .scopes("server")
-//                .authorities("oauth2")
-//                .secret(finalSecret);
-        clients.withClientDetails(clientDetailsService);
+        String finalSecret = new BCryptPasswordEncoder().encode("123456");
+        final String resourceIds = "goods,user";
+        // 配置两个客户端，一个用于password认证一个用于client认证
+        clients.inMemory().withClient("client_1")
+                .resourceIds(resourceIds)
+                .authorizedGrantTypes("authorization_code","client_credentials", "refresh_token")
+                .scopes("read")
+                .authorities("oauth2")
+                .secret(finalSecret)
+                .and().withClient("client_2")
+                .resourceIds(resourceIds)
+                .authorizedGrantTypes("password", "refresh_token")
+                .scopes("write")
+                .authorities("oauth2")
+                .secret(finalSecret);
+
     }
 
 
