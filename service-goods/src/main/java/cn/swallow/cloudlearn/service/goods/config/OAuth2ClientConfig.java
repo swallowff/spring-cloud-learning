@@ -20,9 +20,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableConfigurationProperties
 @Configuration
 public class OAuth2ClientConfig {
+    private static final String SECURITY_OAUTH2_CLIENT_PREFIX = "security.oauth2.client";
 
     @Bean
-    @ConfigurationProperties(prefix = "security.oauth2.client")
+    @ConfigurationProperties(prefix = SECURITY_OAUTH2_CLIENT_PREFIX)
     public ClientCredentialsResourceDetails clientCredentialsResourceDetails() {
         return new ClientCredentialsResourceDetails();
     }

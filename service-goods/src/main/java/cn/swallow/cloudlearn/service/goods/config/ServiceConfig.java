@@ -9,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
  * @author swallowff
  * @create 2019/10/9
  */
-@Configuration
+//@Configuration
+@Deprecated
 public class ServiceConfig {
 
     @Bean

@@ -24,9 +24,14 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public Optional<SysUser> getByUserName(String userName) {
+    public SysUser getByUserName(String userName) {
         SysUser query = new SysUser();
         query.setUserName(userName);
-        return userDao.findOne(Example.of(query));
+        Optional<SysUser> userOp = userDao.findOne(Example.of(query));
+        if (userOp.isPresent()){
+            return userOp.get();
+        }else {
+            return null;
+        }
     }
 }

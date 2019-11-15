@@ -18,7 +18,7 @@ import java.security.Principal;
 public class UsersController {
     Logger logger = LoggerFactory.getLogger(SysUserController.class);
 
-    @RequestMapping(value = "/current", method = RequestMethod.GET)
+    @RequestMapping(value = "current", method = RequestMethod.GET)
     @ResponseBody
     public Principal getUser(Principal principal) {
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>");

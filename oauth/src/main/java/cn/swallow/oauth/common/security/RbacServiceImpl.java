@@ -13,6 +13,7 @@ import java.util.Set;
  * @author shenyu
  * @create 2019/11/8
  */
+@Deprecated
 @Component("rbacService")
 public class RbacServiceImpl implements RbacService {
     private AntPathMatcher antPathMatcher = new AntPathMatcher();

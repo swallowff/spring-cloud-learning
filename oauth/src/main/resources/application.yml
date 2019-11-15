@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: oauth
+    name: auth
   mvc:
     view:
       prefix: /WEB-INF/view
@@ -31,6 +31,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+    enabled: false
 
 logging:
   level:

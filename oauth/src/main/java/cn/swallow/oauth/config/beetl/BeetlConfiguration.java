@@ -1,4 +1,4 @@
-package cn.swallow.oauth.config;
+package cn.swallow.oauth.config.beetl;
 
 import org.beetl.core.Context;
 import org.beetl.core.Function;

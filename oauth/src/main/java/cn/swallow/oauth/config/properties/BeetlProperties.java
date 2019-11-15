@@ -58,7 +58,6 @@ public class BeetlProperties {
         if (StringUtils.isNotBlank(htmlTagFlag)) {
             properties.setProperty("HTML_TAG_FLAG", htmlTagFlag);
         }
-
         return properties;
     }
 

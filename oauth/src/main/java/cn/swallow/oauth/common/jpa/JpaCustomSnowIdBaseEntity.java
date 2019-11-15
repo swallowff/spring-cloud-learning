@@ -18,7 +18,7 @@ import java.util.Date;
 public abstract class JpaCustomSnowIdBaseEntity<ID> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "snow-id")   //使用自定义ID生成策略
-    @GenericGenerator(name = "snow-id", strategy = "cn.swallow.oauth.common.util.JpaCustomIDgenerator")
+    @GenericGenerator(name = "snow-id", strategy = "cn.swallow.oauth.common.util.JpaCustomIdGenerator")
     protected ID id;
     @CreationTimestamp
     @OrderBy("DESC")

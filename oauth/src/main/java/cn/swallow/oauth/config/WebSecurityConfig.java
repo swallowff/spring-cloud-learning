@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -55,9 +56,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
         auth.authenticationProvider(authenticationProvider);
     }
+
+
 
     @Override
     @Bean
@@ -68,13 +70,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
 //        web.ignoring()
-//                .antMatchers("/users/**");
+//                .antMatchers("/client/**")
+//                .antMatchers("/login")
+//                .antMatchers("/oauth/**");
+
     }
 
 
     // 配置拦截规则
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //传统security登录拦截规则配置
 //        http.authorizeRequests()
 //                .antMatchers("/oauth/**").permitAll()
 ////                .antMatchers("/user/**").hasRole("admin")//表示/user资源需要有ADMIN这个角色才能访问
@@ -88,10 +94,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and().csrf().disable()
 //                .httpBasic();
 
-        http.requestMatchers().anyRequest()
+        //oauth2.0拦截规则配置
+        http
+                .formLogin().loginPage("/login").loginProcessingUrl("/login/form")
+                .successHandler(myAuthenticationSuccessHandler)
+                .failureHandler(myAuthenticationFailHander)
+                .permitAll() //表单登录，permitAll()表示这个不需要验证 登录页面，登录失败页面
                 .and()
                 .authorizeRequests()
-                .antMatchers("/oauth/**").permitAll();
+                .antMatchers("/index").permitAll() //这就表示 /index这个页面不需要权限认证，所有人都可以访问
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
+
+//                .antMatchers("/client/**").hasRole("admin")
+//                .antMatchers("/user/**").hasRole("role_a")
+//                .antMatchers("/oauth/**").permitAll()
+//                .and().csrf().disable().httpBasic();
     }
 
 

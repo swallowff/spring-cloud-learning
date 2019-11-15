@@ -1,6 +1,5 @@
 package cn.swallow.oauth.common.util;
 
-import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentityGenerator;
 
@@ -10,7 +9,7 @@ import java.io.Serializable;
  * @author swallowff
  * @create 2019/9/18
  */
-public class JpaCustomIDgenerator extends IdentityGenerator {
+public class JpaCustomIdGenerator extends IdentityGenerator {
 
     @Override
     public Serializable generate(SharedSessionContractImplementor s, Object obj) {

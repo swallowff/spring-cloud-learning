@@ -8,7 +8,7 @@ eureka:
 
 spring:
   application:
-    name: service-goods
+    name: goods
   thymeleaf:
     prefix: classpath:/WEB-INF/view/
     suffix: .html
@@ -18,8 +18,8 @@ security:
     resource:
       user-info-uri: http://localhost:8081/users/current
     client:
-      id: client_2
+      id: client_b
       client-secret: 123456
       access-token-uri: http://localhost:8081/oauth/token
       grant-type: client_credentials,password
-      scope: server
+      scope: ios

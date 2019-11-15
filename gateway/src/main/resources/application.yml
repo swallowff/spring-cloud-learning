@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: gateway
@@ -8,16 +11,16 @@ spring:
           enabled: true   # 配置此项可通过http://localhost:8080/{大写服务名}/url 进行负载均衡调用
           lower-case-service-id: true # 配置此项可使用小写服务名路由
       routes:
-      - id: service-goods
-        uri: lb://SERVICE-GOODS
+      - id: goodsService
+        uri: lb://GOODS
         predicates:
           - Path=/goods/**
         filters:
           - StripPrefix=1
-      - id: oauth
-        uri: lb://OAUTH
+      - id: auth
+        uri: lb://AUTH
         predicates:
-          - Path=/oauth/**
+          - Path=/auth/**
         filters:
           - StripPrefix=1
 # 使用手动配置服务的方式负载均衡
@@ -52,9 +55,18 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-server:
-  port: 8080
+#security:
+#  oauth2:
+#    client:
+#      access-token-uri: http://localhost:8081/oauth/token
+#      user-authorization-uri: http://localhost:8081/oauth/authorize
+#      client-id: gateway
+#    resource:
+#      user-info-uri: http://localhost:8081/users/current
+#      prefer-token-info: false
 
 logging:
   level:
     org.springframework.cloud.gateway: debug
+
+

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @create 2019/11/9
  */
 @Controller
-@RequestMapping(value = "client")
+@RequestMapping(value = "/client")
 public class ClientController {
     @Autowired
     private ClientDetailsService clientDetailsService;

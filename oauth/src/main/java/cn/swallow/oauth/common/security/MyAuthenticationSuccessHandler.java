@@ -2,6 +2,7 @@ package cn.swallow.oauth.common.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -34,7 +35,8 @@ public class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticat
         Map<String,String> map=new HashMap<>();
         map.put("code", "200");
         map.put("msg", "登录成功");
-        response.setContentType("application/json;charset=UTF-8");
+        response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+        response.setCharacterEncoding("UTF-8");
         response.getWriter().write(objectMapper.writeValueAsString(map));
 
 

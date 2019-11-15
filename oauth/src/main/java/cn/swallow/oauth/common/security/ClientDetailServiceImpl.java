@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.provider.ClientRegistrationException;
  * @author shenyu
  * @create 2019/11/9
  */
+@Deprecated
 public class ClientDetailServiceImpl implements ClientDetailsService {
 
     @Override

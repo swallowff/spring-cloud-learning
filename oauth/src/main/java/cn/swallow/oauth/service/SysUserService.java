@@ -7,6 +7,6 @@ import java.util.Optional;
 public interface SysUserService {
     SysUser save(SysUser userInfo);
 
-    Optional<SysUser> getByUserName(String userName);
+    SysUser getByUserName(String userName);
 
 }

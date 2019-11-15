@@ -19,6 +19,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/goods/**").authenticated(); // 配置goods访问控制，必须认证后才可以访问
+                // 配置goods访问控制，必须认证后才可以访问
+                .antMatchers("/goods/**").authenticated();
     }
 }
